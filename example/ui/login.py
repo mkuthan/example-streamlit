@@ -1,8 +1,8 @@
 import streamlit as st
 
-from example.utils import authentication
+from example.ui.components import authentication
 
 st.title("Please login to continue")
 
-if st.button("Log in"):
+if st.button("Log in", icon=":material/login:"):
     authentication.login()

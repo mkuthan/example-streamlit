@@ -1,6 +1,6 @@
 import streamlit as st
 
-from example.utils import authentication
+from example.ui.components import authentication
 from example.utils import serde
 
 
@@ -35,17 +35,25 @@ st.set_page_config(
 
 st.logo("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", size="large")
 
+# Reduce top padding from 5rem to 2rem
+st.markdown("""
+<style>
+section.stMain .block-container {
+    padding-top: 2rem;
+}
+</style>""", unsafe_allow_html=True)
+
 if not st.session_state.logged_in:
     login_page = st.Page("example/ui/login.py", title="Log in", icon=":material/login:")
 
     pg = st.navigation(pages=[login_page])
 else:
-    p1 = st.Page("example/ui/page1.py", title="Page 1", icon=":material/dashboard:", default=True)
-    p2 = st.Page("example/ui/page2.py", title="Page 2", icon=":material/dashboard:")
-    p3 = st.Page("example/ui/page3.py", title="Page 3", icon=":material/history:")
-    p4 = st.Page("example/ui/page4.py", title="Page 4", icon=":material/history:")
+    home = st.Page("example/ui/home.py", title="Home", icon=":material/home:", default=True)
+    p2 = st.Page("example/ui/page2.py", title="Page 2", icon=":material/search:")
+    p3 = st.Page("example/ui/page3.py", title="Page 3", icon=":material/dashboard:")
+    p4 = st.Page("example/ui/page4.py", title="Page 4", icon=":material/calculate:")
 
-    pg = st.navigation(pages=[p1, p2, p3, p4])
+    pg = st.navigation(pages=[home, p2, p3, p4])
 
     if st.sidebar.button("Share", icon=":material/link:"):
         share(pg.url_path)

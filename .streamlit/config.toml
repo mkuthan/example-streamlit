@@ -1,0 +1,26 @@
+[browser]
+# Disable sending usage statistics to Streamlit.
+gatherUsageStats = false
+
+[client]
+# Show only options set externally (e.g. hrough st.set_page_config)
+toolbarMode = "minimal"
+
+[runner]
+# Raise an exception after adding unserializable data to Session State.
+enforceSerializableSessionState = true
+
+[server]
+# Don't open a new browser tab on every app run, it's annoying.
+headless = true
+
+# Enforce port, if not defined Streamlit will pick 8501, than 8502, etc.
+# Stable port is crucial for authentication redirection configuration, see .env file.
+port = 8501
+
+# Automatically rerun script when the file is modified on disk.
+runOnSave = true
+
+[theme]
+# Force light theme to make application logo visible and avoid headache with all other components.
+base = "light"
