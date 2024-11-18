@@ -1,0 +1,6 @@
+streamlit==1.39.0
+google-cloud-bigquery==3.25.0
+polars==1.9.0
+
+# speedup source code monitoring and live reloading
+watchdog==2.1.6
