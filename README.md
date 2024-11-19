@@ -15,6 +15,7 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 * Authentication skeleton, unauthenticated user gets login page, authenticated user is able to log out
 * Application state can be shared via URL
 * Modularity of technical layers within a single domain
+* Tests execution from IDE without additional configuration
 * UI components with shared state management
 * Minimal toolbar menu
 
@@ -54,3 +55,8 @@ TODO:
 * Utility functions
 * Shouldn't import Streamlit API
 * Tested within Pytest, no mocking
+
+## Python guides
+
+* Define type hints for all functions
+* Skip docstrings, it's better to write small and easy to understand functions

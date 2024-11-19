@@ -1,3 +1,4 @@
+from datetime import date
 from datetime import datetime
 from datetime import timedelta
 
@@ -5,7 +6,7 @@ import streamlit as st
 
 
 # TODO: test this component
-def show(key: str = "date_range_picker"):
+def show(key: str = "date_range_picker") -> tuple[date, date]:
     __initialize_state(key)
 
     today = datetime.now().date()
@@ -19,6 +20,7 @@ def show(key: str = "date_range_picker"):
     else:
         st.error("Please select a valid date range")
 
+    return st.session_state[key]
 
 def __initialize_state(key: str):
     if key not in st.session_state:
