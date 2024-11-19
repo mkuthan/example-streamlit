@@ -51,7 +51,7 @@ TODO:
 
 * Shared UI components
 * Encapsulates Streamlit state management
-* Tested with Streamlit testing framework (TODO: how to do it?)
+* Tested with Streamlit testing framework with small helper wrappers
 
 ## `example.utils`
 
