@@ -17,6 +17,7 @@ def test_show_title(mock_get_trips):
 def test_show_trips(mock_get_trips):
     trips = pd.DataFrame({
         'day': ['2023-01-01'],
+        'payment_type': 'Credit card',
         'total_fare': [100.0],
         'total_tips': [10.0],
         'total_amount': [110.0],

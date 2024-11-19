@@ -3,7 +3,7 @@ import streamlit as st
 
 # TODO: test this component
 def show(key: str = "payment_type_selector") -> str:
-    payment_type_options = ["Cash", "Credit Card", "PayPal"]
+    payment_type_options = ["Credit card", "Cash", "No charge", "Dispute", "Unknown", "Voided trip"]
 
     __initialize_state(key, payment_type_options)
 

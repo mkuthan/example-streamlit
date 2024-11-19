@@ -13,8 +13,7 @@ payment_type = payment_type_selector.show()
 
 st.divider()
 
-with st.spinner("Loading trips ..."):
-    # TODO: make this code testable and write streamlit test
-    trips = nyc_tlc_trips.get_trips(date_range, payment_type)
+# TODO: make this code testable and write streamlit test
+trips = nyc_tlc_trips.get_trips(date_range, payment_type)
 
 st.dataframe(trips)

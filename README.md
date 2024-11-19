@@ -11,32 +11,35 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 
 ## Implemented features
 
-* Web routing within Streamlit built-in multi-page capabilities for navigation
-* Authentication skeleton, unauthenticated user gets login page, authenticated user is able to log out
-* Application state can be shared via URL
-* Modularity of technical layers within a single domain
-* Tests execution from IDE without additional configuration
+* Web routing using Streamlit's built-in multi-page navigation capabilities
+* Authentication skeleton: unauthenticated users see the login page, authenticated users can log out
+* Integration with BigQuery
+* Share application state via URL
+* Modular technical layers within a single domain
+* Execute tests from the IDE without additional configuration
+* Minimal external dependencies
 * UI components with shared state management
 * Minimal toolbar menu
 
 TODO:
 
 * Redirect to the original page after login
+* Integration tests for BigQuery
 
 ## Modules
 
 ## `example.api`
 
 * API layer, business logic only
-* Tested withing Pytest (TODO: how to avoid mocking infrastructure?) 
-* Shouldn't import Streamlit API
+* Tested with Pytest and mocked infrastructure layer
+* Shouldn't import Streamlit API besides `@st.cache`
 
 ## `example.infrastructure`
 
 * Infrastructure code only, no application logic
 * Tested in realistic environment (Cloud, Test Containers, etc.)
 * Shouldn't import Streamlit API
-* Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlaying database API
+* Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
 
 ## `example.ui`
 

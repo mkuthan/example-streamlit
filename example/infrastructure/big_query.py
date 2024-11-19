@@ -1,13 +1,20 @@
 import pandas as pd
-import polars as pl
 from google.cloud import bigquery
 
 
-def query(q: str) -> pd.DataFrame:
+# TODO: add error handling, define timeouts, etc.
+def query(q: str, params: dict = None) -> pd.DataFrame:
     client = __get_client()
-    # TODO: add error handling, define timeouts, etc.
-    results = client.query(q).to_arrow()
-    return pl.from_arrow(results)
+
+    job_config = bigquery.QueryJobConfig(
+        query_parameters=[
+            # TODO: add support for other types
+            bigquery.ScalarQueryParameter(name, "STRING", value)
+            for name, value in (params or {}).items()
+        ]
+    )
+    results = client.query(q, job_config=job_config)
+    return results.to_dataframe()
 
 
 def __get_client() -> bigquery.Client:
