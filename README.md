@@ -25,6 +25,9 @@ TODO:
 
 * Redirect to the original page after login
 * Integration tests for BigQuery
+* Put tests in separate directory
+* Configure Ruff linter
+* Verify load balancer strategies (sticky session)
 
 ## Modules
 
@@ -41,7 +44,7 @@ TODO:
 * Shouldn't import Streamlit API
 * Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
 
-## `example.ui`
+## `example.ui.pages`
 
 * Application pages
 * Tested with Streamlit testing framework and mocked API layer

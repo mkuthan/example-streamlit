@@ -44,14 +44,14 @@ section.stMain .block-container {
 </style>""", unsafe_allow_html=True)
 
 if not st.session_state.logged_in:
-    login_page = st.Page("example/ui/login.py", title="Log in", icon=":material/login:")
+    login_page = st.Page("example/ui/pages/login.py", title="Log in", icon=":material/login:")
 
     pg = st.navigation(pages=[login_page])
 else:
-    home = st.Page("example/ui/home.py", title="Home", icon=":material/home:", default=True)
-    p2 = st.Page("example/ui/page2.py", title="Page 2", icon=":material/search:")
-    p3 = st.Page("example/ui/page3.py", title="Page 3", icon=":material/dashboard:")
-    p4 = st.Page("example/ui/page4.py", title="Page 4", icon=":material/calculate:")
+    home = st.Page("example/ui/pages/home.py", title="Home", icon=":material/home:", default=True)
+    p2 = st.Page("example/ui/pages/page2.py", title="Page 2", icon=":material/search:")
+    p3 = st.Page("example/ui/pages/page3.py", title="Page 3", icon=":material/dashboard:")
+    p4 = st.Page("example/ui/pages/page4.py", title="Page 4", icon=":material/calculate:")
 
     pg = st.navigation(pages=[home, p2, p3, p4])
 
