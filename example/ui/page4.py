@@ -3,7 +3,7 @@ import streamlit as st
 from example.ui.components import date_range_picker
 from example.ui.components import payment_type_selector
 
-st.title("Subsystem 2 - Page 2")
+st.title("Page 4")
 
 st.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit")
 

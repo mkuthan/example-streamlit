@@ -41,7 +41,7 @@ TODO:
 ## `example.ui`
 
 * Application pages
-* Tested with Streamlit testing framework (TODO: how to avoid mocking api/infrastructure?)
+* Tested with Streamlit testing framework and mocked API layer
 * Delegate shared UI components to `example.ui.components`
 
 ## `example.ui.components`
