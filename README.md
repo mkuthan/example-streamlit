@@ -31,9 +31,9 @@ TODO:
 
 ## Modules
 
-## `example.api`
+## `example.service`
 
-* API layer, business logic only
+* Service layer, business logic only
 * Tested with Pytest and mocked infrastructure layer
 * Shouldn't import Streamlit API besides `@st.cache`
 
@@ -49,6 +49,7 @@ TODO:
 * Application pages
 * Tested with Streamlit testing framework and mocked API layer
 * Delegate shared UI components to `example.ui.components`
+* Delegate logic to `example.service`
 
 ## `example.ui.components`
 

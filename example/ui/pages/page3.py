@@ -1,6 +1,6 @@
 import streamlit as st
 
-from example.api import nyc_tlc_trips
+from example.service import nyc_tlc_trips
 from example.ui.components import date_range_picker
 from example.ui.components import payment_type_selector
 

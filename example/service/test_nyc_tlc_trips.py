@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import pandas as pd
 
-from example.api import nyc_tlc_trips
+from example.service import nyc_tlc_trips
 
 
 @patch("example.infrastructure.big_query.query")

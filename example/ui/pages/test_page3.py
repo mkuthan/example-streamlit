@@ -4,7 +4,7 @@ import pandas as pd
 import pandas.testing as pdt
 from streamlit.testing.v1 import AppTest
 
-@patch("example.api.nyc_tlc_trips.get_trips")
+@patch("example.service.nyc_tlc_trips.get_trips")
 def test_show_title(mock_get_trips):
     trips = pd.DataFrame()
     mock_get_trips.return_value = trips
@@ -13,7 +13,7 @@ def test_show_title(mock_get_trips):
 
     assert at.title[0].value == "Page 3"
 
-@patch("example.api.nyc_tlc_trips.get_trips")
+@patch("example.service.nyc_tlc_trips.get_trips")
 def test_show_trips(mock_get_trips):
     trips = pd.DataFrame({
         'day': ['2023-01-01'],
