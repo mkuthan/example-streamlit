@@ -67,3 +67,17 @@ TODO:
 
 * Define type hints for all functions
 * Skip docstrings, it's better to write small and easy to understand functions
+
+## Local development
+
+Execute the following commands to run the application locally:
+
+```shell
+streamlit run app.py
+```
+
+Execute tests:
+
+```shell
+pytest
+```
