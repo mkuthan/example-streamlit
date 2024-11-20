@@ -1,37 +1,40 @@
-# Streamlit Non-Trivial App
+# Streamlit Non-Trivial Application Skeleton
 
-Non-trivial Streamlit application skeleton implemented in a "Streamlit way".
-Streamlit is not a typical web framework, so don't try to apply typical web frameworks patterns here.
-
-* No typical request/response cycle
-* Very limited routing capabilities
-* HTML/CSS/JS abstracted away
-* All the code runs on the server side
-* Streamlit specific state management
+This project demonstrates how to leverage the built-in power of Streamlit using best software engineering practices and tools. It provides a non-trivial Streamlit application skeleton, showcasing how to effectively utilize Streamlit's capabilities and address its limitations.
 
 ![Screenshot](screenshot.png)
 
-## Implemented features
+## Key Features and Benefits
 
-* Web routing using Streamlit's built-in multi-page navigation capabilities
-* Authentication skeleton: unauthenticated users see the login page, authenticated users can log out
-* Integration with BigQuery
-* Share application state via URL
-* Vega-Altair for visualizations
-* Modular technical layers within a single domain
-* Execute tests from the IDE without additional configuration
-* Modern Python build tools to finish full CI build below 30 seconds
-* Minimal external dependencies
-* UI components with shared state management
-* Minimal toolbar menu
+### Architecture & Build
 
-TODO:
+* Modular, layered architecture for better maintainability
+* Separation of concerns for improved testability
+* Modern build tools to complete full CI builds in under 30 seconds
+* Automated formatter and linter
+* Test execution and debugging available directly from VS Code
+* Minimal number of external dependencies
 
+### Streamlit Features
+
+* Web routing using built-in multi-page navigation capabilities
+* Sample reusable, stateful components
+* All pages and components tested with `AppTest`
+* Vega-Altair example visualization
+* BigQuery integration using the New York Taxi public dataset
+* Authentication skeleton, easily replaceable with OAuth
+* Application state sharing via URL
+
+### TODO
+
+* Test coverage and integration with [Codecov](https://about.codecov.io)
+* Implement BigQuery integration tests
+* More visualizations for integrated public dataset
+* Integration with external OAuth provider
 * Redirect to the original page after login
-* Integration tests for BigQuery
-* Verify load balancer strategies (sticky session)
-* Dependabot [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
-* Type checking with [mypy](https://mypy.readthedocs.io/)
+* Describe load balancer strategies (sticky sessions)
+* Automated dependency updates with Dependabot, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
+* More sophisticated type checking, see [mypy](https://mypy.readthedocs.io/)
 
 ## Modules
 
@@ -103,8 +106,3 @@ Show outdated dependencies:
 ```shell
 uv pip list --outdated
 ```
-
-## Python guides
-
-* Define type hints for all functions
-* Skip docstrings, it's better to write small and easy to understand functions
