@@ -20,7 +20,7 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 * Vega-Altair for visualizations
 * Modular technical layers within a single domain
 * Execute tests from the IDE without additional configuration
-* Modern Python build tools: uv, ruff
+* Modern Python build tools to finish full CI build below 30 seconds
 * Minimal external dependencies
 * UI components with shared state management
 * Minimal toolbar menu
