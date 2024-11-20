@@ -24,6 +24,6 @@ def show(key: str = "date_range_picker") -> tuple[date, date]:
     return st.session_state[key]
 
 
-def __initialize_state(key: str):
+def __initialize_state(key: str) -> None:
     if key not in st.session_state:
         st.session_state[key] = (_START_DATE_DEFAULT, _END_DATE_DEFAULT)

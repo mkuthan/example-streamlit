@@ -33,7 +33,16 @@ select = [
     "W", # pycodestyle warnings
     "F", # pyflakes
     "I", # isort
+    "ANN", # flake8-annotations
+    "ARG", # flake8-argument-names    
     "B", # flake8-bugbear
     "C4", # flake8-comprehensions
+    "TCH", # flake8-type-checking
+    "PYI", # flake8-pyi
+    "Q", # flake8-quotes    
     "UP", # pyupgrade
+    "N", # pep8-naming
 ]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["ANN001", "ANN201", "ANN202"]  # Ignore missing type annotations

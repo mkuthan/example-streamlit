@@ -5,7 +5,7 @@ from example.utils import serde
 
 
 @st.dialog("Share")
-def share(path: str):
+def share(path: str) -> None:
     state = st.session_state.to_dict()
     state_encoded = serde.encode_to_url(state)
 

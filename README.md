@@ -28,45 +28,41 @@ TODO:
 * Configure Ruff linter
 * Verify load balancer strategies (sticky session)
 * Dependabot [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
+* Type checking with [mypy](https://mypy.readthedocs.io/)
 
 ## Modules
 
-## `example.services`
+### `example.services`
 
 * Service layer, business logic only
 * Tested with Pytest and mocked infrastructure layer
 * Shouldn't import Streamlit API besides `@st.cache`
 
-## `example.infrastructure`
+### `example.infrastructure`
 
 * Infrastructure code only, no application logic
 * Tested in realistic environment (Cloud, Test Containers, etc.)
 * Shouldn't import Streamlit API
 * Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
 
-## `example.ui.pages`
+### `example.ui.pages`
 
 * Application pages
 * Tested with Streamlit testing framework and mocked API layer
 * Delegate shared UI components to `example.ui.components`
 * Delegate logic to `example.service`
 
-## `example.ui.components`
+### `example.ui.components`
 
 * Shared UI components
 * Encapsulates Streamlit state management
 * Tested with Streamlit testing framework with small helper wrappers
 
-## `example.utils`
+### `example.utils`
 
 * Utility functions
 * Shouldn't import Streamlit API
 * Tested within Pytest, no mocking
-
-## Python guides
-
-* Define type hints for all functions
-* Skip docstrings, it's better to write small and easy to understand functions
 
 ## Local development
 
@@ -104,3 +100,8 @@ Show outdated dependencies:
 ```shell
 uv pip list --outdated
 ```
+
+## Python guides
+
+* Define type hints for all functions
+* Skip docstrings, it's better to write small and easy to understand functions

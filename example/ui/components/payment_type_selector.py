@@ -14,6 +14,6 @@ def show(key: str = "payment_type_selector") -> str:
     return st.session_state[key]
 
 
-def __initialize_state(key: str):
+def __initialize_state(key: str) -> None:
     if key not in st.session_state:
         st.session_state[key] = _PAYMENT_TYPE_OPTIONS[0]
