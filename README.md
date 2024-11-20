@@ -9,6 +9,8 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 * All the code runs on the server side
 * Streamlit specific state management
 
+![Screenshot](screenshot.png)
+
 ## Implemented features
 
 * Web routing using Streamlit's built-in multi-page navigation capabilities
