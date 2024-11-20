@@ -73,6 +73,9 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ## Local development
 
+> [!NOTE]
+> You need Google Cloud Platform account to access sample dataset!
+
 Use VS Code with the following extensions:
 
 * Python
