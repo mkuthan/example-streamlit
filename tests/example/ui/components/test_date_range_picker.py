@@ -36,4 +36,5 @@ def test_date_range_picker_invalid_range():
 
 def _function_under_test():
     from example.ui.components import date_range_picker
+
     date_range_picker.show("test_key")

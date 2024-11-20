@@ -5,17 +5,17 @@ import pandas.testing as pdt
 from streamlit.testing.v1 import AppTest
 
 
-@patch("example.service.nyc_tlc_trips.get_trips")
+@patch("example.services.nyc_tlc_trips.get_trips")
 def test_show_title(mock_get_trips):
     trips = pd.DataFrame()
     mock_get_trips.return_value = trips
 
-    at = AppTest.from_file("page3.py").run()
+    at = AppTest.from_file("example/ui/pages/page3.py").run()
 
     assert at.title[0].value == "Page 3"
 
 
-@patch("example.service.nyc_tlc_trips.get_trips")
+@patch("example.services.nyc_tlc_trips.get_trips")
 def test_show_trips(mock_get_trips):
     trips = pd.DataFrame(
         {
@@ -29,6 +29,6 @@ def test_show_trips(mock_get_trips):
     )
     mock_get_trips.return_value = trips
 
-    at = AppTest.from_file("page3.py").run()
+    at = AppTest.from_file("example/ui/pages/page3.py").run()
 
     pdt.assert_frame_equal(at.dataframe[0].value, trips)

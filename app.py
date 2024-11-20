@@ -28,20 +28,21 @@ st.set_page_config(
     page_icon="https://streamlit.io/images/brand/streamlit-mark-color.png",
     layout="wide",
     initial_sidebar_state="auto",
-    menu_items={
-        "Get Help": "https://streamlit.io/"
-    }
+    menu_items={"Get Help": "https://streamlit.io/"},
 )
 
 st.logo("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", size="large")
 
 # Reduce top padding from 5rem to 2rem
-st.markdown("""
+st.markdown(
+    """
 <style>
 section.stMain .block-container {
     padding-top: 2rem;
 }
-</style>""", unsafe_allow_html=True)
+</style>""",
+    unsafe_allow_html=True,
+)
 
 if not st.session_state.logged_in:
     login_page = st.Page("example/ui/pages/login.py", title="Log in", icon=":material/login:")

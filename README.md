@@ -25,14 +25,13 @@ TODO:
 
 * Redirect to the original page after login
 * Integration tests for BigQuery
-* Put tests in separate directory
 * Configure Ruff linter
 * Verify load balancer strategies (sticky session)
 * Dependabot [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
 
 ## Modules
 
-## `example.service`
+## `example.services`
 
 * Service layer, business logic only
 * Tested with Pytest and mocked infrastructure layer

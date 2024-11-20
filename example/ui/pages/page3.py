@@ -1,6 +1,6 @@
 import streamlit as st
 
-from example.service import nyc_tlc_trips
+from example.services import nyc_tlc_trips
 from example.ui.components import date_range_picker, payment_type_selector
 
 st.title("Page 3")
