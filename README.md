@@ -28,6 +28,7 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 ### TODO
 
 * Test coverage and integration with [Codecov](https://about.codecov.io)
+* Docker image
 * Implement BigQuery integration tests
 * More visualizations for integrated public dataset
 * Integration with external OAuth provider
