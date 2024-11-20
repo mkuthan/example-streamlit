@@ -28,6 +28,7 @@ TODO:
 * Put tests in separate directory
 * Configure Ruff linter
 * Verify load balancer strategies (sticky session)
+* Dependabot [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
 
 ## Modules
 
@@ -70,14 +71,37 @@ TODO:
 
 ## Local development
 
+Use VS Code with the following extensions:
+
+* Python
+* Ruff
+
+Update environment:
+
+```shell
+uv sync
+```
+
 Execute the following commands to run the application locally:
 
 ```shell
 streamlit run app.py
 ```
 
+Check formatting:
+
+```shell
+ruff check
+```
+
 Execute tests:
 
 ```shell
 pytest
+```
+
+Show outdated dependencies:
+
+```shell
+uv pip list --outdated
 ```

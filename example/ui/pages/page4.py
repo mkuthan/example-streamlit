@@ -1,7 +1,6 @@
 import streamlit as st
 
-from example.ui.components import date_range_picker
-from example.ui.components import payment_type_selector
+from example.ui.components import date_range_picker, payment_type_selector
 
 st.title("Page 4")
 

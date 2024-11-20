@@ -13,5 +13,5 @@ def test_login_button_click():
 
     at.button[0].click().run()
 
-    assert at.session_state["logged_in"] == True
+    assert at.session_state["logged_in"] is True
     assert at.session_state["username"] == "John Doe"

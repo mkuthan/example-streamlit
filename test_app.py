@@ -19,6 +19,7 @@ def test_show_app_authenticated():
     assert at.button[0].label == "Share"
     assert at.button[1].label == "Log out"
 
+
 def test_logout_button_click():
     at = AppTest.from_file("app.py")
     at.session_state["logged_in"] = True
@@ -27,7 +28,7 @@ def test_logout_button_click():
 
     at.button[1].click().run()
 
-    assert at.session_state["logged_in"] == False
+    assert at.session_state["logged_in"] is False
     assert at.session_state["username"] is None
 
 
@@ -38,6 +39,7 @@ def test_decode_valid_state():
 
     assert at.session_state["k1"] == "v1"
     assert at.session_state["k2"] == "v2"
+
 
 def test_decode_and_merge_valid_state():
     at = AppTest.from_file("app.py")

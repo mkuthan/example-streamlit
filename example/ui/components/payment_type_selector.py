@@ -6,7 +6,9 @@ _PAYMENT_TYPE_OPTIONS = ["Credit card", "Cash", "No charge", "Dispute", "Unknown
 def show(key: str = "payment_type_selector") -> str:
     __initialize_state(key)
 
-    payment_type = st.selectbox("Payment type", _PAYMENT_TYPE_OPTIONS, index=_PAYMENT_TYPE_OPTIONS.index(st.session_state[key]))
+    index = _PAYMENT_TYPE_OPTIONS.index(st.session_state[key])
+
+    payment_type = st.selectbox("Payment type", _PAYMENT_TYPE_OPTIONS, index=index)
     st.session_state[key] = payment_type
 
     return st.session_state[key]

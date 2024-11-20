@@ -12,7 +12,9 @@ _MAX_DATE = date(2015, 12, 31)
 def show(key: str = "date_range_picker") -> tuple[date, date]:
     __initialize_state(key)
 
-    date_range = st.date_input("Select date range", min_value=_MIN_DATE, max_value=_MAX_DATE, value=st.session_state[key])
+    value = st.session_state[key]
+
+    date_range = st.date_input("Select date range", min_value=_MIN_DATE, max_value=_MAX_DATE, value=value)
 
     if len(date_range) == 2:
         st.session_state[key] = date_range

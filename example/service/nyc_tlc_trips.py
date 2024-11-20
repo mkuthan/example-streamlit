@@ -1,18 +1,11 @@
 from datetime import date
 
 import pandas as pd
-
 import streamlit as st
+
 from example.infrastructure import big_query
 
-_PAYMENT_TYPES = {
-    "1": "Credit card",
-    "2": "Cash",
-    "3": "No charge",
-    "4": "Dispute",
-    "5": "Unknown",
-    "6": "Voided trip"
-}
+_PAYMENT_TYPES = {"1": "Credit card", "2": "Cash", "3": "No charge", "4": "Dispute", "5": "Unknown", "6": "Voided trip"}
 
 
 @st.cache_data(ttl=600)
@@ -38,7 +31,7 @@ def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
     params = {
         "start_date": date_range[0].isoformat(),
         "end_date": date_range[1].isoformat(),
-        "payment_type": _get_payment_type_key(payment_type)
+        "payment_type": _get_payment_type_key(payment_type),
     }
 
     results = big_query.query(query, params)
