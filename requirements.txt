@@ -1,8 +1,0 @@
-streamlit==1.39.0
-
-# bigquery integration
-google-cloud-bigquery==3.25.0
-db-dtypes==1.3.1
-
-# speedup source code monitoring and live reloading
-watchdog==2.1.6
