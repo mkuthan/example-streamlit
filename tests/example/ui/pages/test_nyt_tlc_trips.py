@@ -10,9 +10,9 @@ def test_show_title(mock_get_trips):
     trips = pd.DataFrame()
     mock_get_trips.return_value = trips
 
-    at = AppTest.from_file("example/ui/pages/page3.py").run()
+    at = AppTest.from_file("example/ui/pages/nyt_tlc_trips.py").run()
 
-    assert at.title[0].value == "Page 3"
+    assert at.title[0].value == "NY Taxi Trips"
 
 
 @patch("example.services.nyc_tlc_trips.get_trips")
@@ -29,6 +29,6 @@ def test_show_trips(mock_get_trips):
     )
     mock_get_trips.return_value = trips
 
-    at = AppTest.from_file("example/ui/pages/page3.py").run()
+    at = AppTest.from_file("example/ui/pages/nyt_tlc_trips.py").run()
 
     pdt.assert_frame_equal(at.dataframe[0].value, trips)

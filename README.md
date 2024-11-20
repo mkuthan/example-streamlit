@@ -15,6 +15,7 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 * Authentication skeleton: unauthenticated users see the login page, authenticated users can log out
 * Integration with BigQuery
 * Share application state via URL
+* Vega-Altair for visualizations
 * Modular technical layers within a single domain
 * Execute tests from the IDE without additional configuration
 * Modern Python build tools: uv, ruff

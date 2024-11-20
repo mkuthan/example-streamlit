@@ -5,7 +5,26 @@ import streamlit as st
 
 from example.infrastructure import big_query
 
-_PAYMENT_TYPES = {"1": "Credit card", "2": "Cash", "3": "No charge", "4": "Dispute", "5": "Unknown", "6": "Voided trip"}
+_PAYMENT_TYPES = {
+    0: "Unknown",
+    1: "Credit card",
+    2: "Cash",
+    3: "No charge",
+    4: "Dispute",
+    5: "Unknown",
+    6: "Voided trip",
+}
+
+_RATE_CODES = {
+    0: "Unknown",
+    1: "Standard rate",
+    2: "JFK",
+    3: "Newark",
+    4: "Nassau or Westchester",
+    5: "Negotiated fare",
+    6: "Group ride",
+    99: "Other",
+}
 
 
 @st.cache_data(ttl=600)
@@ -14,6 +33,7 @@ def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
     SELECT
       DATE(pickup_datetime) AS day,
       payment_type AS payment_type,
+      rate_code AS rate_code,
       SUM(fare_amount) AS total_fare,
       SUM(tip_amount) AS total_tips,
       SUM(total_amount) AS total_amount,
@@ -36,7 +56,8 @@ def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
 
     results = big_query.query(query, params)
 
-    results["payment_type"] = results["payment_type"].map(_PAYMENT_TYPES)
+    results["payment_type"] = results["payment_type"].fillna(0).astype(int).map(_PAYMENT_TYPES)
+    results["rate_code"] = results["rate_code"].fillna(0).astype(int).map(_RATE_CODES)
 
     return results
 

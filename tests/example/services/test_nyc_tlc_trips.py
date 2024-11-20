@@ -15,7 +15,8 @@ def test_get_trips(mock_big_query_query):
     trips = pd.DataFrame(
         {
             "day": ["2023-01-01"],
-            "payment_type": "1",
+            "payment_type": [1],
+            "rate_code": [1],
             "total_fare": [100.0],
             "total_tips": [10.0],
             "total_amount": [110.0],
@@ -26,7 +27,7 @@ def test_get_trips(mock_big_query_query):
 
     results = nyc_tlc_trips.get_trips((any_start_date, any_end_date), any_payment_type)
 
-    expected_params = {"start_date": "2015-01-01", "end_date": "2015-01-02", "payment_type": "1"}
+    expected_params = {"start_date": "2015-01-01", "end_date": "2015-01-02", "payment_type": 1}
 
     mock_big_query_query.assert_called_once()
 
@@ -38,6 +39,7 @@ def test_get_trips(mock_big_query_query):
         {
             "day": ["2023-01-01"],
             "payment_type": "Credit card",
+            "rate_code": "Standard rate",
             "total_fare": [100.0],
             "total_tips": [10.0],
             "total_amount": [110.0],

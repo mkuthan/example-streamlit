@@ -2,8 +2,8 @@ from datetime import date
 
 import streamlit as st
 
-_START_DATE_DEFAULT = date(2015, 4, 1)
-_END_DATE_DEFAULT = date(2015, 4, 30)
+_START_DATE_DEFAULT = date(2015, 6, 1)
+_END_DATE_DEFAULT = date(2015, 7, 30)
 
 _MIN_DATE = date(2015, 1, 1)
 _MAX_DATE = date(2015, 12, 31)
