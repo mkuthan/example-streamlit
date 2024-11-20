@@ -17,6 +17,7 @@ Streamlit is not a typical web framework, so don't try to apply typical web fram
 * Share application state via URL
 * Modular technical layers within a single domain
 * Execute tests from the IDE without additional configuration
+* Modern Python build tools: uv, ruff
 * Minimal external dependencies
 * UI components with shared state management
 * Minimal toolbar menu
@@ -25,7 +26,6 @@ TODO:
 
 * Redirect to the original page after login
 * Integration tests for BigQuery
-* Configure Ruff linter
 * Verify load balancer strategies (sticky session)
 * Dependabot [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
 * Type checking with [mypy](https://mypy.readthedocs.io/)
