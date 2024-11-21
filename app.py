@@ -24,9 +24,10 @@ if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
 about = """
-This project demonstrates how to leverage the built-in power of Streamlit using best software engineering practices and tools.
-It provides a non-trivial Streamlit application skeleton, showcasing how to effectively utilize Streamlit's capabilities 
-and address its limitations.
+This project demonstrates how to leverage the built-in power of Streamlit using best software engineering practices
+and tools.
+It provides a non-trivial Streamlit application skeleton, showcasing how to effectively utilize Streamlit's
+capabilities and address its limitations.
 See [README](https://github.com/mkuthan/example-streamlit/blob/main/README.md) for more details.
 """
 
