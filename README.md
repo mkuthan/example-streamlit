@@ -1,5 +1,8 @@
 # Streamlit Non-Trivial Application Skeleton
 
+[![CI](https://github.com/mkuthan/example-streamlit/actions/workflows/ci.yml/badge.svg)](https://github.com/mkuthan/example-streamlit/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mkuthan/example-streamlit/branch/main/graph/badge.svg?token=ZC7VITLNHF)](https://codecov.io/gh/mkuthan/example-streamlit)
+
 This project demonstrates how to leverage the built-in power of Streamlit using best software engineering practices and tools. It provides a non-trivial Streamlit application skeleton, showcasing how to effectively utilize Streamlit's capabilities and address its limitations.
 
 ![Screenshot](screenshot.png)
@@ -12,6 +15,7 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * Separation of concerns for improved testability
 * Modern build tools to complete full CI builds in under 30 seconds
 * Automated formatter and linter
+* Test coverage
 * Test execution and debugging available directly from VS Code
 * Minimal number of external dependencies
 
@@ -27,7 +31,6 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ### TODO
 
-* Test coverage and integration with [Codecov](https://about.codecov.io)
 * Docker image
 * Implement BigQuery integration tests
 * More visualizations for integrated public dataset
@@ -99,7 +102,7 @@ Check formatting:
 ruff check
 ```
 
-Execute tests:
+Execute tests with coverage:
 
 ```shell
 pytest

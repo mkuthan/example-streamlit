@@ -27,4 +27,8 @@ jobs:
         run: uv run ruff check
 
       - name: Run tests
-        run: uv run pytest
+        run: uv run pytest --cov-report=xml
+
+      - uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

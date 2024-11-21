@@ -13,7 +13,9 @@ dependencies = [
 
 [tool.uv]
 dev-dependencies = [
+    # tests with code coverage
     "pytest==8.3.3",
+    "pytest-cov==6.0.0",
     # linter and formatter
     "ruff==0.7.4",
     # speedup source code monitoring and live reloading
@@ -23,6 +25,7 @@ dev-dependencies = [
 [tool.pytest.ini_options]
 pythonpath = "."
 testpaths = ["tests"]
+addopts = "--cov=example --cov-branch"
 
 [tool.ruff]
 line-length = 120
