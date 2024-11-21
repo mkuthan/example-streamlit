@@ -31,48 +31,48 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ### TODO
 
-* Docker image
+* Create Docker image
 * Implement BigQuery integration tests
-* More visualizations for integrated public dataset
-* Integration with external OAuth provider
+* Add more visualizations for integrated public dataset
+* Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
 * Redirect to the original page after login
-* Describe load balancer strategies (sticky sessions)
-* Automated dependency updates with Dependabot, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
-* More sophisticated type checking, see [mypy](https://mypy.readthedocs.io/)
+* Describe load balancer strategies, for example: sticky session
+* Automaticall update dependencies, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
+* Add more sophisticated type checking, see [mypy](https://mypy.readthedocs.io/)
 
 ## Modules
 
 ### `example.services`
 
-* Service layer, business logic only
+* Service layer for application logic
 * Tested with Pytest and mocked infrastructure layer
 * Shouldn't import Streamlit API besides `@st.cache`
 
 ### `example.infrastructure`
 
-* Infrastructure code only, no application logic
+* Infrastructure code, no application logic, no user interface
 * Tested in realistic environment (Cloud, Test Containers, etc.)
 * Shouldn't import Streamlit API
 * Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
 
 ### `example.ui.pages`
 
-* Application pages
-* Tested with Streamlit testing framework and mocked API layer
+* Application pages, no application logic
+* Tested with Streamlit testing framework and mocked service layer
 * Delegate shared UI components to `example.ui.components`
-* Delegate logic to `example.service`
+* Delegate application logic to `example.service`
 
 ### `example.ui.components`
 
 * Shared UI components
+* Tested with Streamlit testing framework with small helper function wrappers
 * Encapsulates Streamlit state management
-* Tested with Streamlit testing framework with small helper wrappers
 
 ### `example.utils`
 
 * Utility functions
+* Tested within Pytest without mock
 * Shouldn't import Streamlit API
-* Tested within Pytest, no mocking
 
 ## Local development
 

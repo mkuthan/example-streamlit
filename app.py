@@ -23,12 +23,26 @@ if "s" in st.query_params:
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
 
+about = """
+This project demonstrates how to leverage the built-in power of Streamlit using best software engineering practices and tools.
+It provides a non-trivial Streamlit application skeleton, showcasing how to effectively utilize Streamlit's capabilities 
+and address its limitations.
+See [README](https://github.com/mkuthan/example-streamlit/blob/main/README.md) for more details.
+"""
+
+get_help = "https://discuss.streamlit.io/t/non-trivial-application-skeleton-from-seasoned-software-data-engineer/86072"
+report_bug = "https://github.com/mkuthan/example-streamlit/issues/new"
+
 st.set_page_config(
     page_title="Streamlit Non-Trivial App",
     page_icon="https://streamlit.io/images/brand/streamlit-mark-color.png",
     layout="wide",
     initial_sidebar_state="auto",
-    menu_items={"Get Help": "https://streamlit.io/"},
+    menu_items={
+        "About": about,
+        "Get Help": get_help,
+        "Report a bug": report_bug,
+    },
 )
 
 st.logo("https://streamlit.io/images/brand/streamlit-logo-primary-colormark-darktext.png", size="large")
