@@ -11,34 +11,34 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ### Architecture & Build
 
-* Modular, layered architecture for better maintainability
-* Separation of concerns for improved testability
-* Modern build tools to complete full CI builds in under 30 seconds
-* Automated formatter and linter
-* Test coverage
-* Test execution and debugging available directly from VS Code
-* Minimal number of external dependencies
+* 🏗️ Modular, layered architecture for better maintainability
+* 🧩 Separation of concerns for improved testability
+* ⚙️ Modern build tools to complete full CI builds in under 30 seconds
+* 🧹 Automated formatter and linter
+* 📊 Test coverage
+* 🐞 Test execution and debugging available directly from VS Code
+* 📦 Minimal number of external dependencies
 
 ### Streamlit Features
 
-* Web routing using built-in multi-page navigation capabilities
-* Sample reusable, stateful components
-* All pages and components tested with `AppTest`
-* Vega-Altair example visualization
-* BigQuery integration using the New York Taxi public dataset
-* Authentication skeleton, easily replaceable with OAuth
-* Application state sharing via URL
+* 🌐 Web routing using built-in multi-page navigation capabilities
+* 🔄 Sample reusable, stateful components
+* ✅ All pages and components tested with `AppTest`
+* 📊 Vega-Altair example visualization
+* 🗂️ BigQuery integration using the New York Taxi public dataset
+* 🔒 Authentication skeleton, easily replaceable with OAuth
+* 🔗 Application state sharing via URL
 
 ### TODO
 
-* Create Docker image
-* Implement BigQuery integration tests
-* Add more visualizations for integrated public dataset
-* Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
-* Redirect to the original page after login
-* Describe load balancer strategies, for example: sticky session
-* Automaticall update dependencies, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
-* Add more sophisticated type checking, see [mypy](https://mypy.readthedocs.io/)
+* 🐳 Create Docker image
+* 🧪 Implement BigQuery integration tests
+* 📈 Add more visualizations for integrated public dataset
+* 🔐 Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
+* 🔄 Redirect to the original page after login
+* ⚖️ Describe load balancer strategies, for example: sticky session
+* 🔄 Automatically update dependencies, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)
+* 📝 Add more sophisticated type checking, see [mypy](https://mypy.readthedocs.io/)
 
 ## Modules
 
