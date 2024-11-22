@@ -28,7 +28,7 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * 🗂️ BigQuery integration using the New York Taxi public dataset
 * 🔒 Authentication skeleton, easily replaceable with OAuth
 * 🔗 Application state sharing via URL
-* 💾 Dataframe export to CSV and XLS
+* 💾 Dataframe export buttons to CSV and XLS
 
 ### TODO
 
@@ -36,7 +36,6 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * 🧪 Implement BigQuery integration tests
 * 📈 Add more visualizations for integrated public dataset
 * 🔐 Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
-* 📋 Better table with sorting and filtering
 * 📝 Add request logging
 * 🔄 Redirect to the original page after login
 * ⚖️ Describe load balancer strategies, for example: sticky session

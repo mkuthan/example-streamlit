@@ -6,6 +6,13 @@ gatherUsageStats = false
 # Show only options set externally (e.g. hrough st.set_page_config)
 toolbarMode = "minimal"
 
+[logger]
+# Info is a default logging level, but keep for reference
+level = "info"
+
+# Add logging level and logger name to make logs more complete
+messageFormat = "%(asctime)s %(levelname) -7s %(name)s: %(message)s"
+
 [runner]
 # Raise an exception after adding unserializable data to Session State.
 enforceSerializableSessionState = true
