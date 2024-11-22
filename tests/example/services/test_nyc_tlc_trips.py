@@ -5,6 +5,18 @@ import pandas as pd
 
 from example.services import nyc_tlc_trips
 
+_any_trips = pd.DataFrame(
+    {
+        "day": ["2023-01-01", "2023-01-02"],
+        "payment_type": [1, 2],
+        "rate_code": [1, 2],
+        "total_fare": [100.0, 150.0],
+        "total_tips": [10.0, 15.0],
+        "total_amount": [110.0, 165.0],
+        "trip_count": [1, 2],
+    }
+)
+
 
 @patch("example.infrastructure.big_query.query")
 def test_get_trips(mock_big_query_query):
@@ -12,18 +24,7 @@ def test_get_trips(mock_big_query_query):
     any_end_date = date(2015, 1, 2)
     any_payment_type = "Credit card"
 
-    trips = pd.DataFrame(
-        {
-            "day": ["2023-01-01"],
-            "payment_type": [1],
-            "rate_code": [1],
-            "total_fare": [100.0],
-            "total_tips": [10.0],
-            "total_amount": [110.0],
-            "trip_count": [1],
-        }
-    )
-    mock_big_query_query.return_value = trips
+    mock_big_query_query.return_value = _any_trips
 
     results = nyc_tlc_trips.get_trips((any_start_date, any_end_date), any_payment_type)
 
@@ -37,14 +38,21 @@ def test_get_trips(mock_big_query_query):
 
     expected_trips = pd.DataFrame(
         {
-            "day": ["2023-01-01"],
-            "payment_type": "Credit card",
-            "rate_code": "Standard rate",
-            "total_fare": [100.0],
-            "total_tips": [10.0],
-            "total_amount": [110.0],
-            "trip_count": [1],
+            "day": ["2023-01-01", "2023-01-02"],
+            "payment_type": ["Credit card", "Cash"],
+            "rate_code": ["Standard rate", "JFK"],
+            "total_fare": [100.0, 150.0],
+            "total_tips": [10.0, 15.0],
+            "total_amount": [110.0, 165.0],
+            "trip_count": [1, 2],
         }
     )
 
     pd.testing.assert_frame_equal(results, expected_trips)
+
+
+def test_export_trips():
+    csv = nyc_tlc_trips.export_trips(_any_trips).decode("utf-8")
+    lines = csv.split("\n")
+
+    assert lines[0] == """day,payment_type,rate_code,total_fare,total_tips,total_amount,trip_count"""

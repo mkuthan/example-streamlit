@@ -35,6 +35,8 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * 🧪 Implement BigQuery integration tests
 * 📈 Add more visualizations for integrated public dataset
 * 🔐 Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
+* 📝 Add request logging
+* 📊 Add tabular data export to CSV
 * 🔄 Redirect to the original page after login
 * ⚖️ Describe load balancer strategies, for example: sticky session
 * 🔄 Automatically update dependencies, see [dependabot#10039](https://github.com/dependabot/dependabot-core/issues/10039)

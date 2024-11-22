@@ -16,7 +16,9 @@ payment_type = payment_type_selector.show()
 trips = nyc_tlc_trips.get_trips(date_range, payment_type)
 
 st.caption("Search results")
-st.dataframe(trips)
+st.dataframe(trips, use_container_width=True)
+
+st.download_button("Export CSV", nyc_tlc_trips.export_trips(trips), "trips.csv", "text/csv")
 
 trip_count_chart = (
     alt.Chart(trips)

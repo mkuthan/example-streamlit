@@ -62,6 +62,11 @@ def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
     return results
 
 
+@st.cache_data(ttl=600)
+def export_trips(trips: pd.DataFrame) -> bytes:
+    return trips.to_csv(index=False).encode("utf-8")
+
+
 def _get_payment_type_key(payment_type: str) -> str:
     for key, value in _PAYMENT_TYPES.items():
         if value.lower() == payment_type.lower():
