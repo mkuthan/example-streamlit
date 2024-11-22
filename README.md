@@ -18,6 +18,7 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * 📊 Test coverage
 * 🐞 Test execution and debugging available directly from VS Code
 * 📦 Minimal number of external dependencies
+* 🐳 Optimized Docker image for deploying application
 
 ### Streamlit Features
 
@@ -32,7 +33,6 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ### TODO
 
-* 🐳 Create Docker image
 * 🧪 Implement BigQuery integration tests
 * 📈 Add more visualizations for integrated public dataset
 * 🔐 Integration with external OAuth provider, see [roadmap](https://roadmap.streamlit.app/)
