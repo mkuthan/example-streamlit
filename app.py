@@ -1,13 +1,13 @@
 import streamlit as st
 
-from example.ui.components import authentication
-from example.utils import serde
+from example.ui.components import authenticator
+from example.utils import url_serde
 
 
 @st.dialog("Share")
 def share(path: str) -> None:
     state = st.session_state.to_dict()
-    state_encoded = serde.encode_to_url(state)
+    state_encoded = url_serde.encode(state)
 
     st.write("Copy the link below to share the current state of the app:")
     st.link_button("Share", f"{path}?s=${state_encoded}", icon=":material/link:")
@@ -17,7 +17,7 @@ def share(path: str) -> None:
 
 # Very limited state management, no versioning, no validation
 if "s" in st.query_params:
-    state_decoded = serde.decode_from_url(st.query_params["s"])
+    state_decoded = url_serde.decode(st.query_params["s"])
     st.session_state.update(state_decoded)
 
 if "logged_in" not in st.session_state:
@@ -73,6 +73,6 @@ else:
         share(pg.url_path)
 
     if st.sidebar.button("Log out", icon=":material/person:"):
-        authentication.logout()
+        authenticator.logout()
 
 pg.run()

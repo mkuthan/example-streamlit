@@ -1,3 +1,3 @@
-# TODO: add integration tests
 def test_query():
+    # TODO: implement integration tests
     pass

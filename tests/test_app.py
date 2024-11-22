@@ -1,6 +1,6 @@
 from streamlit.testing.v1 import AppTest
 
-from example.utils import serde
+from example.utils import url_serde
 
 
 def test_show_app_unauthenticated():
@@ -34,7 +34,7 @@ def test_logout_button_click():
 
 def test_decode_valid_state():
     at = AppTest.from_file("app.py")
-    at.query_params["s"] = serde.encode_to_url({"k1": "v1", "k2": "v2"})
+    at.query_params["s"] = url_serde.encode({"k1": "v1", "k2": "v2"})
     at.run()
 
     assert at.session_state["k1"] == "v1"
@@ -45,7 +45,7 @@ def test_decode_and_merge_valid_state():
     at = AppTest.from_file("app.py")
     at.session_state["k1"] = "v1"
     at.session_state["k2"] = "v2"
-    at.query_params["s"] = serde.encode_to_url({"k2": "updated v2", "k3": "v3"})
+    at.query_params["s"] = url_serde.encode({"k2": "updated v2", "k3": "v3"})
     at.run()
 
     assert at.session_state["k1"] == "v1"

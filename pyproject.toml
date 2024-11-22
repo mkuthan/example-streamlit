@@ -9,6 +9,9 @@ dependencies = [
     # bigquery integration
     "google-cloud-bigquery==3.27.0",
     "db-dtypes==1.3.1",
+    # export to excel
+    "xlsxwriter==3.2.0",
+    "openpyxl==3.1.5",
 ]
 
 [tool.uv]
