@@ -18,7 +18,7 @@ RUN uv sync  --no-install-project --frozen --no-dev
 # Copy project files separately to avoid rebuilding on every file change
 COPY app.py ./
 COPY example ./example
-COPY .streamlit ./.streamlit
+COPY .streamlit/config.toml ./.streamlit/config.toml
 RUN uv sync --frozen --no-dev
 
 #
