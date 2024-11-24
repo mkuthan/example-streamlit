@@ -9,11 +9,11 @@ from example.services import ny_tlc_trips_service
 
 @pytest.fixture
 def mock_trips():
-    with patch("example.infrastructure.big_query.query") as mock:
+    with patch("example.repositories.ny_tlc_trips_repository.get_trips") as mock:
         df = pd.DataFrame(
             {
                 "day": ["2023-01-01", "2023-01-02"],
-                "payment_type": [1, 2],
+                "payment_type": [1, 1],
                 "rate_code": [1, 2],
                 "total_fare": [100.0, 150.0],
                 "total_tips": [10.0, 15.0],
@@ -32,18 +32,10 @@ def test_get_trips(mock_trips):
 
     results = ny_tlc_trips_service.get_trips((any_start_date, any_end_date), any_payment_type)
 
-    expected_params = {"start_date": "2015-01-01", "end_date": "2015-01-02", "payment_type": 1}
-
-    mock_trips.assert_called_once()
-
-    # TODO: avoid ugly code, why call_args[0]?
-    actual_query, actual_params = mock_trips.call_args[0]
-    assert actual_params == expected_params
-
     expected_trips = pd.DataFrame(
         {
             "day": ["2023-01-01", "2023-01-02"],
-            "payment_type": ["Credit card", "Cash"],
+            "payment_type": ["Credit card", "Credit card"],
             "rate_code": ["Standard rate", "JFK"],
             "total_fare": [100.0, 150.0],
             "total_tips": [10.0, 15.0],

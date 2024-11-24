@@ -44,19 +44,6 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 ## Modules
 
-### `example.services`
-
-* Service layer for application logic
-* Tested with Pytest and mocked infrastructure layer
-* Shouldn't import Streamlit API besides `@st.cache`
-
-### `example.infrastructure`
-
-* Infrastructure code, no application logic, no user interface
-* Tested in realistic environment (Cloud, Test Containers, etc.)
-* Shouldn't import Streamlit API
-* Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
-
 ### `example.ui.pages`
 
 * Application pages, no application logic
@@ -70,10 +57,31 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 * Tested with Streamlit testing framework with small helper function wrappers
 * Encapsulates Streamlit state management
 
+### `example.services`
+
+* Service layer for application logic
+* Tested with Pytest and mocked repositories layer
+* Shouldn't import Streamlit API besides `@st.cache`
+
+### `example.repositories`
+
+* Repository layer for data persistence
+* Tested in realistic environment (Cloud, Test Containers, etc.)
+* Shouldn't import Streamlit API
+* Keep it simple, delegate logic to `example.service` if possible
+
+### `example.infrastructure`
+
+* Infrastructure code
+* Tested in realistic environment (Cloud, Test Containers, etc.)
+* Shouldn't import Streamlit API
+* Keep it simple, should not have any application specific logic
+* Acts as anti-corruption layer, for example - expose Pandas DataFrame instead of underlying database API
+
 ### `example.utils`
 
 * Utility functions
-* Tested within Pytest without mock
+* Tested within Pytest without mocks
 * Shouldn't import Streamlit API
 
 ## Local development
