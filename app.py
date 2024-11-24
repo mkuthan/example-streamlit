@@ -60,12 +60,12 @@ section.stMain .block-container {
 )
 
 if not st.session_state.logged_in:
-    login_page = st.Page("example/ui/pages/login.py", title="Log in", icon=":material/login:")
+    login_page = st.Page("example/ui/pages/login_page.py", title="Log in", icon=":material/login:")
 
     pg = st.navigation(pages=[login_page])
 else:
-    home = st.Page("example/ui/pages/home.py", title="Home", icon=":material/home:", default=True)
-    nyt_tlc_trips = st.Page("example/ui/pages/nyt_tlc_trips.py", title="NY Taxi Trips", icon=":material/local_taxi:")
+    home = st.Page("example/ui/pages/home_page.py", title="Home", icon=":material/home:", default=True)
+    nyt_tlc_trips = st.Page("example/ui/pages/ny_tlc_trips_page.py", title="NY Taxi Trips", icon=":material/local_taxi:")
 
     pg = st.navigation(pages=[home, nyt_tlc_trips])
 

@@ -1,7 +1,7 @@
 import altair as alt
 import streamlit as st
 
-from example.services import nyc_tlc_trips
+from example.services import ny_tlc_trips_service
 from example.ui.components import date_range_picker, export_buttons, payment_type_selector
 
 st.title("NY Taxi Trips")
@@ -13,7 +13,7 @@ st.caption("Filters")
 date_range = date_range_picker.show()
 payment_type = payment_type_selector.show()
 
-trips = nyc_tlc_trips.get_trips(date_range, payment_type)
+trips = ny_tlc_trips_service.get_trips(date_range, payment_type)
 
 st.caption("Search results")
 
@@ -25,9 +25,9 @@ else:
     # TODO: make component for buttons in a single row
     csv, xls = st.columns(2)
     with csv:
-        export_buttons.show_export_csv(trips, "nyc_tlc_trips.csv")
+        export_buttons.show_export_csv(trips, "ny_tlc_trips.csv")
     with xls:
-        export_buttons.show_export_excel(trips, "nyc_tlc_trips.xlsx")
+        export_buttons.show_export_excel(trips, "ny_tlc_trips.xlsx")
 
     trip_count_chart = (
         alt.Chart(trips)

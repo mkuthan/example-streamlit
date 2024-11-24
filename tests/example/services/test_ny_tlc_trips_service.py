@@ -4,7 +4,7 @@ from unittest.mock import patch
 import pandas as pd
 import pytest
 
-from example.services import nyc_tlc_trips
+from example.services import ny_tlc_trips_service
 
 
 @pytest.fixture
@@ -30,7 +30,7 @@ def test_get_trips(mock_trips):
     any_end_date = date(2015, 1, 2)
     any_payment_type = "Credit card"
 
-    results = nyc_tlc_trips.get_trips((any_start_date, any_end_date), any_payment_type)
+    results = ny_tlc_trips_service.get_trips((any_start_date, any_end_date), any_payment_type)
 
     expected_params = {"start_date": "2015-01-01", "end_date": "2015-01-02", "payment_type": 1}
 
