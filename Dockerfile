@@ -3,7 +3,7 @@ FROM python:3.12-slim-bookworm AS base
 #
 # Stage 1: Build stage
 #
-FROM base as builder
+FROM base AS builder
 
 # Install and configure uv
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
