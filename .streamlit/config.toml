@@ -3,7 +3,7 @@
 gatherUsageStats = false
 
 [client]
-# Show only options set externally (e.g. hrough st.set_page_config)
+# Show only options set externally (e.g. through st.set_page_config)
 toolbarMode = "minimal"
 
 [logger]
