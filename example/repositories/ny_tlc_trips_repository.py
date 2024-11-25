@@ -5,7 +5,9 @@ import streamlit as st
 
 from example.infrastructure import big_query
 
-def get_trips(date_range: tuple[date, date], payment_type: int) -> pd.DataFrame:
+
+@st.cache_data(ttl=600)
+def get_trips(date_range: tuple[date, date]) -> pd.DataFrame:
     query = """
     SELECT
       DATE(pickup_datetime) AS day,
@@ -19,16 +21,9 @@ def get_trips(date_range: tuple[date, date], payment_type: int) -> pd.DataFrame:
       `bigquery-public-data.new_york.tlc_yellow_trips_2015`
     WHERE
       DATE(pickup_datetime) BETWEEN @start_date AND @end_date
-    AND
-      payment_type = @payment_type
     GROUP BY ALL
-    ORDER BY day
     """
 
-    params = {
-        "start_date": date_range[0].isoformat(),
-        "end_date": date_range[1].isoformat(),
-        "payment_type": payment_type,
-    }
+    params = {"start_date": date_range[0].isoformat(), "end_date": date_range[1].isoformat()}
 
     return big_query.query(query, params)

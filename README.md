@@ -62,14 +62,14 @@ This project demonstrates how to leverage the built-in power of Streamlit using 
 
 * Service layer for application logic
 * Tested with Pytest and mocked repositories layer
-* Shouldn't import Streamlit API besides `@st.cache`
+* Shouldn't import Streamlit API
 * Use `_service` filename suffix to differentiate from pages or repositories
 
 ### `example.repositories`
 
 * Repository layer for data persistence
 * Tested in realistic environment (Cloud, Test Containers, etc.)
-* Shouldn't import Streamlit API
+* Shouldn't import Streamlit API besides `@st.cache`
 * Keep it simple, delegate logic to `example.service` if possible, for example aggregate small datasets in memory
 * Use `_repository` filename suffix to differentiate from services or pages
 

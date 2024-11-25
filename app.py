@@ -65,7 +65,9 @@ if not st.session_state.logged_in:
     pg = st.navigation(pages=[login_page])
 else:
     home = st.Page("example/ui/pages/home_page.py", title="Home", icon=":material/home:", default=True)
-    nyt_tlc_trips = st.Page("example/ui/pages/ny_tlc_trips_page.py", title="NY Taxi Trips", icon=":material/local_taxi:")
+    nyt_tlc_trips = st.Page(
+        "example/ui/pages/ny_tlc_trips_page.py", title="NY Taxi Trips", icon=":material/local_taxi:"
+    )
 
     pg = st.navigation(pages=[home, nyt_tlc_trips])
 

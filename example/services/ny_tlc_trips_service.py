@@ -1,7 +1,6 @@
 from datetime import date
 
 import pandas as pd
-import streamlit as st
 
 from example.repositories import ny_tlc_trips_repository
 
@@ -27,15 +26,16 @@ _RATE_CODES = {
 }
 
 
-@st.cache_data(ttl=600)
 def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
-    
-    results = ny_tlc_trips_repository.get_trips(date_range, _get_payment_type_key(payment_type))
+    df = ny_tlc_trips_repository.get_trips(date_range)
 
-    results["payment_type"] = results["payment_type"].fillna(0).astype(int).map(_PAYMENT_TYPES)
-    results["rate_code"] = results["rate_code"].fillna(0).astype(int).map(_RATE_CODES)
+    df["payment_type"] = df["payment_type"].fillna(0).astype(int).map(_PAYMENT_TYPES)
+    df["rate_code"] = df["rate_code"].fillna(0).astype(int).map(_RATE_CODES)
 
-    return results
+    df = df[df["payment_type"] == payment_type]
+    df = df.sort_values("day")
+
+    return df
 
 
 def _get_payment_type_key(payment_type: str) -> str:

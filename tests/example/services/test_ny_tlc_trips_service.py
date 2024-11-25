@@ -13,7 +13,7 @@ def mock_trips():
         df = pd.DataFrame(
             {
                 "day": ["2023-01-01", "2023-01-02"],
-                "payment_type": [1, 1],
+                "payment_type": [1, 2],
                 "rate_code": [1, 2],
                 "total_fare": [100.0, 150.0],
                 "total_tips": [10.0, 15.0],
@@ -25,7 +25,7 @@ def mock_trips():
         yield mock
 
 
-def test_get_trips(mock_trips):
+def test_get_trips(mock_trips):  # noqa: ARG001
     any_start_date = date(2015, 1, 1)
     any_end_date = date(2015, 1, 2)
     any_payment_type = "Credit card"
@@ -34,13 +34,13 @@ def test_get_trips(mock_trips):
 
     expected_trips = pd.DataFrame(
         {
-            "day": ["2023-01-01", "2023-01-02"],
-            "payment_type": ["Credit card", "Credit card"],
-            "rate_code": ["Standard rate", "JFK"],
-            "total_fare": [100.0, 150.0],
-            "total_tips": [10.0, 15.0],
-            "total_amount": [110.0, 165.0],
-            "trip_count": [1, 2],
+            "day": ["2023-01-01"],
+            "payment_type": ["Credit card"],
+            "rate_code": ["Standard rate"],
+            "total_fare": [100.0],
+            "total_tips": [10.0],
+            "total_amount": [110.0],
+            "trip_count": [1],
         }
     )
 
