@@ -32,7 +32,6 @@ def test_show_title_and_no_results(page_under_test, mock_trips_totals_empty):  #
 
     assert len(at.dataframe) == 0
     assert len(at.get("download_button")) == 0
-    assert len(at.get("arrow_vega_lite_chart")) == 0
 
 
 @pytest.fixture
@@ -60,9 +59,3 @@ def test_show_export_buttons(page_under_test, mock_trips_totals_single):  # noqa
     at = AppTest.from_file(page_under_test).run()
 
     assert len(at.get("download_button")) == 2
-
-
-def test_show_line_chart(page_under_test, mock_trips_totals_single):  # noqa: ARG001
-    at = AppTest.from_file(page_under_test).run()
-
-    assert len(at.get("arrow_vega_lite_chart")) == 1

@@ -50,6 +50,16 @@ def test_trips_totals(mock_trips_totals, any_date_range):  # noqa: ARG001
     pd.testing.assert_frame_equal(results, expected)
 
 
+def test_trips_count_by_payment_type():
+    # TODO: Implement this test
+    pass
+
+
+def test_trips_count_by_rate_code():
+    # TODO: Implement this test
+    pass
+
+
 @pytest.fixture
 def mock_trips_avg_speed():
     with patch("example.repositories.ny_tlc_trips_repository.trips_avg_speed") as mock:

@@ -9,9 +9,9 @@ _XLSX_MIME_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.s
 
 def show_export_csv(df: pd.DataFrame, filename: str) -> bool:
     data = dataframe_exporter.export_to_csv(df)
-    return st.download_button("Export CSV", data, filename, _CSV_MIME_TYPE)
+    return st.download_button("Export CSV", data, filename, _CSV_MIME_TYPE, icon=":material/file_download:")
 
 
 def show_export_excel(df: pd.DataFrame, filename: str) -> bool:
     data = dataframe_exporter.export_to_xls(df)
-    return st.download_button("Export XLS", data, filename, _XLSX_MIME_TYPE)
+    return st.download_button("Export XLS", data, filename, _XLSX_MIME_TYPE, icon=":material/file_download:")

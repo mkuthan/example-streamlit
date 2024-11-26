@@ -6,8 +6,6 @@ from example.ui.components import date_range_picker
 
 st.title("NY Taxi Trips Average Speed")
 
-st.write("New York City Taxi and Limousine Commission (TLC) trips")
-
 st.caption("Filters")
 
 date_range = date_range_picker.show()
