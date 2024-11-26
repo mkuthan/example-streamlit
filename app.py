@@ -65,11 +65,16 @@ if not st.session_state.logged_in:
     pg = st.navigation(pages=[login_page])
 else:
     home = st.Page("example/ui/pages/home_page.py", title="Home", icon=":material/home:", default=True)
-    nyt_tlc_trips = st.Page(
-        "example/ui/pages/ny_tlc_trips_page.py", title="NY Taxi Trips", icon=":material/local_taxi:"
+
+    nyt_tlc_trips_totals = st.Page(
+        "example/ui/pages/ny_tlc_trips_totals_page.py", title="NY Taxi Trips Totals", icon=":material/local_taxi:"
     )
 
-    pg = st.navigation(pages=[home, nyt_tlc_trips])
+    nyt_tlc_trips_avg_speed = st.Page(
+        "example/ui/pages/ny_tlc_trips_avg_speed_page.py", title="NY Taxi Trips Avg Speed", icon=":material/speed:"
+    )
+
+    pg = st.navigation(pages=[home, nyt_tlc_trips_totals, nyt_tlc_trips_avg_speed])
 
     if st.sidebar.button("Share", icon=":material/link:"):
         share(pg.url_path)

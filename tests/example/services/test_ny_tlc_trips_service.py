@@ -8,8 +8,13 @@ from example.services import ny_tlc_trips_service
 
 
 @pytest.fixture
-def mock_trips():
-    with patch("example.repositories.ny_tlc_trips_repository.get_trips") as mock:
+def any_date_range():
+    return (date(2015, 1, 1), date(2015, 1, 2))
+
+
+@pytest.fixture
+def mock_trips_totals():
+    with patch("example.repositories.ny_tlc_trips_repository.trips_totals") as mock:
         df = pd.DataFrame(
             {
                 "day": ["2023-01-01", "2023-01-02"],
@@ -25,14 +30,12 @@ def mock_trips():
         yield mock
 
 
-def test_get_trips(mock_trips):  # noqa: ARG001
-    any_start_date = date(2015, 1, 1)
-    any_end_date = date(2015, 1, 2)
+def test_trips_totals(mock_trips_totals, any_date_range):  # noqa: ARG001
     any_payment_type = "Credit card"
 
-    results = ny_tlc_trips_service.get_trips((any_start_date, any_end_date), any_payment_type)
+    results = ny_tlc_trips_service.trips_totals(any_date_range, any_payment_type)
 
-    expected_trips = pd.DataFrame(
+    expected = pd.DataFrame(
         {
             "day": ["2023-01-01"],
             "payment_type": ["Credit card"],
@@ -44,4 +47,31 @@ def test_get_trips(mock_trips):  # noqa: ARG001
         }
     )
 
-    pd.testing.assert_frame_equal(results, expected_trips)
+    pd.testing.assert_frame_equal(results, expected)
+
+
+@pytest.fixture
+def mock_trips_avg_speed():
+    with patch("example.repositories.ny_tlc_trips_repository.trips_avg_speed") as mock:
+        df = pd.DataFrame(
+            {
+                "day": ["2023-01-01", "2023-01-02", "2023-01-03"],
+                "avg_speed_mi_h": [20.0, 25.0, 30.0],
+            }
+        )
+        mock.return_value = df
+        yield mock
+
+
+def test_trips_avg_speed(mock_trips_avg_speed, any_date_range):  # noqa: ARG001
+    results = ny_tlc_trips_service.trips_avg_speed(any_date_range)
+
+    expected = pd.DataFrame(
+        {
+            "day": ["2023-01-01", "2023-01-02", "2023-01-03"],
+            "avg_speed_mi_h": [20.0, 25.0, 30.0],
+            "day_of_week": ["Sunday", "Monday", "Tuesday"],
+        }
+    )
+
+    pd.testing.assert_frame_equal(results, expected)

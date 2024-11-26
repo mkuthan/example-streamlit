@@ -4,7 +4,7 @@ import streamlit as st
 from example.services import ny_tlc_trips_service
 from example.ui.components import date_range_picker, export_buttons, payment_type_selector
 
-st.title("NY Taxi Trips")
+st.title("NY Taxi Trips Totals")
 
 st.write("New York City Taxi and Limousine Commission (TLC) trips")
 
@@ -13,7 +13,7 @@ st.caption("Filters")
 date_range = date_range_picker.show()
 payment_type = payment_type_selector.show()
 
-trips = ny_tlc_trips_service.get_trips(date_range, payment_type)
+trips = ny_tlc_trips_service.trips_totals(date_range, payment_type)
 
 st.caption("Search results")
 

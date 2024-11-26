@@ -26,8 +26,8 @@ _RATE_CODES = {
 }
 
 
-def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
-    df = ny_tlc_trips_repository.get_trips(date_range)
+def trips_totals(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
+    df = ny_tlc_trips_repository.trips_totals(date_range)
 
     df["payment_type"] = df["payment_type"].fillna(0).astype(int).map(_PAYMENT_TYPES)
     df["rate_code"] = df["rate_code"].fillna(0).astype(int).map(_RATE_CODES)
@@ -38,8 +38,11 @@ def get_trips(date_range: tuple[date, date], payment_type: str) -> pd.DataFrame:
     return df
 
 
-def _get_payment_type_key(payment_type: str) -> str:
-    for key, value in _PAYMENT_TYPES.items():
-        if value.lower() == payment_type.lower():
-            return key
-    raise ValueError(f"Invalid payment type: {payment_type}")
+def trips_avg_speed(date_range: tuple[date, date]) -> pd.DataFrame:
+    df = ny_tlc_trips_repository.trips_avg_speed(date_range)
+
+    df["day_of_week"] = pd.to_datetime(df["day"]).dt.day_name()
+    df["avg_speed_mi_h"] = df["avg_speed_mi_h"].round(2)
+    df = df.sort_values("day")
+
+    return df
