@@ -109,10 +109,16 @@ Execute the following commands to run the application locally:
 streamlit run app.py
 ```
 
-Check formatting:
+Linting:
 
 ```shell
 ruff check
+```
+
+Check formatting:
+
+```shell
+ruff format --check
 ```
 
 Execute tests with coverage:

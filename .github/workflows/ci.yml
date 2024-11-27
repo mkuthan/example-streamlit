@@ -26,6 +26,9 @@ jobs:
       - name: Lint
         run: uv run ruff check
 
+      - name: Format
+        run: uv run ruff format --check
+
       - name: Run tests
         run: uv run pytest --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
