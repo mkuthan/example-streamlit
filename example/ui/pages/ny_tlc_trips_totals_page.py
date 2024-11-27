@@ -21,3 +21,7 @@ else:
 
     export_buttons.show_export_csv(trips_totals, "ny_tlc_trips.csv")
     export_buttons.show_export_excel(trips_totals, "ny_tlc_trips.xlsx")
+
+    st.caption("Statistics")
+
+    st.dataframe(trips_totals.describe(), use_container_width=True)
