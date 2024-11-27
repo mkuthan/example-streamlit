@@ -63,6 +63,10 @@ def trips_avg_speed(date_range: tuple[date, date]) -> pd.DataFrame:
 def _trips_totals(date_range: tuple[date, date]) -> pd.DataFrame:
     df = ny_tlc_trips_repository.trips_totals(date_range)
 
+    # TODO: figure out the best way to handle timeseries data
+    # df.index = pd.to_datetime(df["day"])
+    # df = df.drop(columns=["day"])
+
     df["payment_type"] = df["payment_type"].fillna(0).astype(int).map(_PAYMENT_TYPES)
     df["rate_code"] = df["rate_code"].fillna(0).astype(int).map(_RATE_CODES)
 
