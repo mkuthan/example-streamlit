@@ -62,7 +62,7 @@ section.stMain .block-container {
 if not st.session_state.logged_in:
     login_page = st.Page("example/ui/pages/login_page.py", title="Log in", icon=":material/login:")
 
-    pg = st.navigation(pages=[login_page])
+    current_page = st.navigation(pages=[login_page])
 else:
     home = st.Page("example/ui/pages/home_page.py", title="Home", icon=":material/home:", default=True)
 
@@ -78,12 +78,12 @@ else:
         "example/ui/pages/ny_tlc_trips_avg_speed_page.py", title="NY Taxi Trips Avg Speed", icon=":material/speed:"
     )
 
-    pg = st.navigation(pages=[home, ny_tlc_trips_totals, ny_tlc_trips_count, ny_tlc_trips_avg_speed])
+    current_page = st.navigation(pages=[home, ny_tlc_trips_totals, ny_tlc_trips_count, ny_tlc_trips_avg_speed])
 
     if st.sidebar.button("Share", icon=":material/link:"):
-        share(pg.url_path)
+        share(current_page.url_path)
 
     if st.sidebar.button("Log out", icon=":material/person:"):
         authenticator.logout()
 
-pg.run()
+current_page.run()
