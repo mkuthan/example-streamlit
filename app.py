@@ -78,12 +78,25 @@ else:
         "example/ui/pages/ny_tlc_trips_avg_speed_page.py", title="NY Taxi Trips Avg Speed", icon=":material/speed:"
     )
 
-    antd_components = st.Page(
-        "example/ui/pages/antd_tree_component_page.py", title="AntD Tree Component", icon=":material/account_tree:"
+    antd_tree_navigation = st.Page(
+        "example/ui/pages/antd_tree_navigation_page.py", title="AntD Tree Navigation", icon=":material/account_tree:"
+    )
+
+    breadcrumbs_navigation = st.Page(
+        "example/ui/pages/breadcrumbs_navigation_page.py",
+        title="Breadcrumbs Navigation",
+        icon=":material/account_tree:",
     )
 
     current_page = st.navigation(
-        pages=[home, ny_tlc_trips_totals, ny_tlc_trips_count, ny_tlc_trips_avg_speed, antd_components]
+        pages=[
+            home,
+            ny_tlc_trips_totals,
+            ny_tlc_trips_count,
+            ny_tlc_trips_avg_speed,
+            antd_tree_navigation,
+            breadcrumbs_navigation,
+        ]
     )
 
     if st.sidebar.button("Share", icon=":material/link:"):

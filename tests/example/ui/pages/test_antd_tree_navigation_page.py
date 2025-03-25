@@ -4,14 +4,14 @@ from streamlit.testing.v1 import AppTest
 
 @pytest.fixture
 def page_under_test():
-    return "example/ui/pages/antd_tree_component_page.py"
+    return "example/ui/pages/antd_tree_navigation_page.py"
 
 
 def test_show_title_and_initial_state(page_under_test):
     at = AppTest.from_file(page_under_test).run()
 
     # Check the title
-    assert at.title[0].value == "AntD Tree Component"
+    assert at.title[0].value == "AntD Tree Navigation Page"
 
     # Check the initial message when no node is selected
     assert "Please select a node from the tree." in [el.value for el in at.markdown]
